@@ -1,10 +1,6 @@
 # FROM nvidia/cudagl:10.1-devel-ubuntu18.04
+#This is the version that works
 FROM nvidia/cudagl:11.4.2-devel-ubuntu18.04
-
-# RUN apt-get update && apt-get install -y curl gnupg2
-
-# # Import the GPG key for the Nvidia repository
-# RUN curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | apt-key add -
 
 
 RUN apt-get update && apt-get upgrade -y 
@@ -27,12 +23,12 @@ RUN conda init
 RUN conda install -y -c pytorch pytorch torchvision
 RUN conda install -y tensorflow-gpu==1.15.0
 # RUN pip install gin-config
-RUN pip install gin-config==0.4.0 
+#Only this version of gin-config allows the render this code depends on
+RUN pip install gin-config==0.4.0
+#atari is only required for drone sim
 # RUN pip install gym[atari]
 RUN pip install gym==0.17.3
 RUN pip install gym[box2d]
-RUN pip install gym[accept-rom-license]
-# RUN pip install gym[atari]
 
 
 WORKDIR /root
@@ -49,6 +45,7 @@ RUN conda install -y PyOpenGL
 RUN pip install pygame PyOpenGL_accelerate
 
 WORKDIR /root/pkgs
+#fork of the original dl repo with edited 
 RUN git clone --branch ritika https://github.com/GhoshRitika/dl.git
 # WORKDIR /root/pkgs/dl
 # RUN git checkout 650db8abc90053305be95e73ce28da624e9092dc

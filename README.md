@@ -10,11 +10,13 @@ You can interact with the models through a joystick and the pygame interface.
 
 The code is based on my [deep reinforcement learning library](https://github.com/cbschaff/dl) which builds on PyTorch,
 OpenAI Gym, gin-config, and Tensorboard.
+My fork for the above has a trivial update [deep reinforcement learning library](https://github.com/GhoshRitika/dl)
 
 ## Installation
 
 1. Install [docker](https://docs.docker.com/get-docker/).
-2. Install [x-docker](https://github.com/afdaniele/x-docker), a wrapper around docker for running GUI applications inside a container.
+2. Install [x-docker](https://github.com/afdaniele/x-docker), a wrapper around docker for running GUI applications inside a container. 
+    (x-docker folder added to this repo, step no longer required)
 3. In the top level directory, build the docker image by running:
     ```./build_docker.sh```
 4. Launch the docker container by running:
