@@ -25,10 +25,15 @@ RUN conda init
 
 # Install packages
 RUN conda install -y -c pytorch pytorch torchvision
-RUN conda install -y tensorflow-gpu==1.14.0
-RUN pip install gin-config
+RUN conda install -y tensorflow-gpu==1.15.0
+# RUN pip install gin-config
+RUN pip install gin-config==0.4.0 
 # RUN pip install gym[atari]
+RUN pip install gym==0.17.3
 RUN pip install gym[box2d]
+RUN pip install gym[accept-rom-license]
+# RUN pip install gym[atari]
+
 
 WORKDIR /root
 RUN git clone https://github.com/openai/baselines.git
@@ -44,9 +49,9 @@ RUN conda install -y PyOpenGL
 RUN pip install pygame PyOpenGL_accelerate
 
 WORKDIR /root/pkgs
-RUN git clone https://github.com/cbschaff/dl.git
-WORKDIR /root/pkgs/dl
-RUN git checkout 650db8abc90053305be95e73ce28da624e9092dc
+RUN git clone --branch ritika https://github.com/GhoshRitika/dl.git
+# WORKDIR /root/pkgs/dl
+# RUN git checkout 650db8abc90053305be95e73ce28da624e9092dc
 
 WORKDIR /root
 # Bash entrypoint

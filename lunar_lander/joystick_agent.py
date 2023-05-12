@@ -86,3 +86,4 @@ if __name__ == '__main__':
             ob, r, done, _ = env.step(actor(ob))
             reward += r
         print(reward)
+    env.close()
