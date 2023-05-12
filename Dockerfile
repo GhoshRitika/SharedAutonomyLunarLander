@@ -1,6 +1,14 @@
-FROM nvidia/cudagl:10.1-devel-ubuntu18.04
+# FROM nvidia/cudagl:10.1-devel-ubuntu18.04
+FROM nvidia/cudagl:11.4.2-devel-ubuntu18.04
 
-RUN apt-get update && apt-get upgrade -y
+# RUN apt-get update && apt-get install -y curl gnupg2
+
+# # Import the GPG key for the Nvidia repository
+# RUN curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | apt-key add -
+
+
+RUN apt-get update && apt-get upgrade -y 
+# --no-install-recommends
 
 # Install packages
 RUN apt-get install -y wget git vim libsm6 libxext6 libxrender-dev ffmpeg python-opengl
@@ -19,7 +27,7 @@ RUN conda init
 RUN conda install -y -c pytorch pytorch torchvision
 RUN conda install -y tensorflow-gpu==1.14.0
 RUN pip install gin-config
-RUN pip install gym[atari]
+# RUN pip install gym[atari]
 RUN pip install gym[box2d]
 
 WORKDIR /root
