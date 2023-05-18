@@ -29,6 +29,7 @@ RUN pip install gin-config==0.4.0
 # RUN pip install gym[atari]
 RUN pip install gym==0.17.3
 RUN pip install gym[box2d]
+RUN pip install gymnasium-robotics[mujoco-py]
 
 
 WORKDIR /root
